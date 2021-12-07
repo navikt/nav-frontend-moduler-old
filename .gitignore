@@ -105,12 +105,8 @@ examples/webpack/out
 packages/**/css
 utilities/**/css
 
-*/static/*.zip
-*/static/png
 @navikt/core/icons/NAV-ikonpakke-png.zip
 @navikt/core/icons/NAV-ikonpakke-svg.zip
-*/**/NAV-ikonpakke-png.zip
-*/**/NAV-ikonpakke-svg.zip
 
 react-docgen.json
 react-docgen-docs.json
