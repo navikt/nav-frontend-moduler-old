@@ -62,7 +62,7 @@
     "prettier": "2.2.1"
   },
   "scripts": {
-    "build:gatsby": "npm run copy:static && gatsby build",
+    "build:gatsby": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

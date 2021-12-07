@@ -37,20 +37,12 @@ jobs:
         run: yarn boot
       - name: Eslint and Stylelint
         run: yarn lint
-      - name: Test
-        run: yarn test
       - name: add access token to .env
         run: echo "ACCESS_TOKEN=${{ secrets.VERKTOYKASSE_INNHOLD_TOKEN }}" >> website/.env
       - name: add branch token to .env
         run: echo "BRANCH=HEAD" >> website/.env
       - name: Test gatsby-build (design.nav.no)
         run: yarn build:gatsby
-      - name: Test chromatic
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GIT_REPO }}
-          projectToken: ${{ secrets.CHROMATIC }}
-          exitZeroOnChanges: true
 
   publish-npm:
     needs: test-build
@@ -62,7 +54,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: "0"
-          token: ${{secrets.GIT_REPO}}
+          token: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org
@@ -84,7 +76,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git remote set-url origin https://github-actions[bot]:$NAV_DS_TOKEN@github.com/$GITHUB_REPOSITORY.git
         env:
-          NAV_DS_TOKEN: ${{secrets.GIT_REPO}}
+          NAV_DS_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Update changed packages with PATCH
         if: "contains(github.event.head_commit.message, '[fix]')"
@@ -98,18 +90,6 @@ jobs:
       - name: Publish to NPM registry
         run: yarn lerna publish --no-verify-access from-package --yes
 
-      - name: Create a .npmrc file for the github package repository
-        uses: FerLuisxd/create-npmrc@3
-        with:
-          org_name: navikt
-        env:
-          AUTH_TOKEN: ${{secrets.GIT_REPO}}
-      - name: Publish to Github registry
-        run: |
-          rm lerna.json && cp utilities/lerna.json lerna.json
-          git add . && git commit -m "tmp"
-          yarn lerna publish --registry https://npm.pkg.github.com from-package --yes
-
   publish-pages:
     needs: test-build
     runs-on: ubuntu-latest
@@ -118,7 +98,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: "0"
-          token: ${{secrets.GIT_REPO}}
+          token: ${{secrets.GITHUB_TOKEN}}
       - uses: actions/setup-node@v1
         with:
           node-version: 14
@@ -142,6 +122,7 @@ jobs:
       - name: Building Storybook
         run: yarn build-storybook
 
+      # TODO: Endre denne til vercel
       - name: Deploy to Design.nav.no 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
@@ -149,13 +130,4 @@ jobs:
           BRANCH: gh-pages
           FOLDER: website/public
         env:
-          NAV_DS_TOKEN: ${{secrets.GIT_REPO}}
-
-      - name: Deploy storybook to designsystem-repo
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{secrets.GIT_REPO}}
-          external_repository: navikt/designsystemet
-          publish_dir: ./storybook-static
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          NAV_DS_TOKEN: ${{secrets.GITHUB_TOKEN}}
