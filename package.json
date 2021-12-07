@@ -15,7 +15,7 @@
     "build:ds": "yarn run --silent lerna run --ignore nav-frontend-* build",
     "build:gatsby": "yarn react-docgen && yarn workspace website build:gatsby",
     "lerna:watch": "yarn run lerna run watch --stream",
-    "lint": "yarn lint:jsts && yarn lint:less && yarn lint:css",
+    "lint": "yarn lint:jsts && yarn lint:less",
     "lint:jsts": "yarn eslint .",
     "lint:less": "yarn stylelint --syntax less **/*.less",
     "clean:lib": "node utilities/scripts/clean.js",
