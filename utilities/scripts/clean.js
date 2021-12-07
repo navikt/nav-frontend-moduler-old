@@ -34,10 +34,6 @@ function getGlobFiles(globPattern, options) {
 Promise.all([
   getGlobFiles("./packages/**/lib", { dot: true }),
   getGlobFiles("./packages/**/dist", { dot: true }),
-  getGlobFiles("./@navikt/**/lib", { dot: true }),
-  getGlobFiles("./@navikt/**/esm", { dot: true }),
-  getGlobFiles("./@navikt/**/cjs", { dot: true }),
-  getGlobFiles("./@navikt/core/icons/src", { dot: true }),
   getGlobFiles("./packages/**/src/*.d.ts", { dit: true }),
 ]).then(([lib, dist, libvnext, esmvnext, cjsvnext, iconsrc, files]) => {
   files.forEach((file) => {

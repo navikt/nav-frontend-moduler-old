@@ -16,18 +16,12 @@ const findMatch = (file) => {
   if (file.includes("nav-frontend-")) {
     const match = file.match(/nav-frontend-(.+)\/src/);
     return match && "nav-frontend-" + match[1].replace("/", "");
-  } else if (file.includes("@navikt/core/react")) {
-    const match = file.match(/@navikt\/ds-react\/(.*)\//);
-    return match && "@navikt/core/react/" + match[1];
   }
 };
 
 try {
-  const newComponents = glob.sync("@navikt/core/react/**/*.tsx");
   const oldComponents = glob.sync("packages/**/src/*.tsx");
-  const files = [...newComponents, ...oldComponents].filter(
-    (file) => !file.includes("stories")
-  );
+  const files = [...oldComponents].filter((file) => !file.includes("stories"));
 
   const found = [];
   const groups = [];

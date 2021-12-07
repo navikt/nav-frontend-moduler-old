@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "yarn workspace @navikt/ds-react test && yarn workspace @navikt/ds-tokens test",
     "postinstall": "husky install",
     "start": "yarn workspace website start",
     "boot": "yarn clean:lib && yarn build:packages --stream",
@@ -17,20 +16,15 @@
     "build:gatsby": "yarn react-docgen && yarn workspace website build:gatsby",
     "chromatic": "STORYBOOK_CHROMATIC=true npx chromatic --project-token x3xqdfgkujg",
     "lerna:watch": "yarn run lerna run watch --stream",
-    "update:icons": "yarn workspace @navikt/ds-icons update",
-    "update:tokens": "yarn workspace @navikt/ds-tokens update",
     "lint": "yarn lint:jsts && yarn lint:less && yarn lint:css",
     "lint:jsts": "yarn eslint .",
     "lint:less": "yarn stylelint --syntax less **/*.less",
-    "lint:css": "yarn stylelint --syntax css @navikt/**/*.css",
     "clean:lib": "node utilities/scripts/clean.js",
     "react-docgen": "node utilities/scripts/react-docgen.js"
   },
   "workspaces": [
     "website",
     "packages/*",
-    "@navikt/core/*",
-    "@navikt/internal/*",
     "utilities/build/from-git-fix"
   ],
   "prettier": {},

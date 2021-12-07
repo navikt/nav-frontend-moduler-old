@@ -73,23 +73,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `docgen-vnext`,
-        path: `${__dirname}/../@navikt/core/react`,
-        ignore: [
-          `**/*.js`,
-          `**/stories/**`,
-          `**/*eksempel.js`,
-          `**/sample/*.js`,
-          `**/*.example.js`,
-          `**/*.mdx`,
-          `**/*.d.*`,
-          `**/lib/**`,
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout/layout.tsx`),
