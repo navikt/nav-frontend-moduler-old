@@ -35,20 +35,15 @@ Promise.all([
   getGlobFiles("./packages/**/lib", { dot: true }),
   getGlobFiles("./packages/**/dist", { dot: true }),
   getGlobFiles("./packages/**/src/*.d.ts", { dit: true }),
-]).then(([lib, dist, libvnext, esmvnext, cjsvnext, iconsrc, files]) => {
+]).then(([lib, dist, files]) => {
   files.forEach((file) => {
     console.log(`Deleting file ${file}`);
     fs.unlinkSync(file);
   });
 
-  const folders = [
-    ...lib,
-    ...dist,
-    ...libvnext,
-    ...esmvnext,
-    ...cjsvnext,
-    ...iconsrc,
-  ].filter((path) => !path.includes("node_modules"));
+  const folders = [...lib, ...dist].filter(
+    (path) => !path.includes("node_modules")
+  );
 
   folders.forEach((folder) => {
     console.log(`Deleting folder ${folder}`);
