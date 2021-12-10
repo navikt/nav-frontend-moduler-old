@@ -3,12 +3,6 @@ require("dotenv").config({
 });
 
 module.exports = {
-  siteMetadata: {
-    title: `Verktøykassen NAV`,
-    description: ``,
-    author: `@navikt`,
-    siteUrl: "https://design.nav.no/",
-  },
   plugins: [
     `gatsby-plugin-client-side-redirect`,
     "gatsby-plugin-robots-txt",
