@@ -1,0 +1,47 @@
+name: Publish to vercel
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  publish-pages:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+          token: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Node-modules cache
+        uses: actions/cache@v2
+        id: node-cache
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install deps
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: yarn install
+      - name: Gulp-build
+        run: yarn boot
+      - name: add access token to .env
+        run: echo "ACCESS_TOKEN=${{ secrets.VERKTOYKASSE_INNHOLD_TOKEN }}" >> website/.env
+      - name: add branch token to .env
+        run: echo "BRANCH=HEAD" >> website/.env
+      - name: Building Gatsby
+        run: yarn build:gatsby
+
+      - uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+          vercel-args: "--prod" #Optional
+          vercel-org-id: ${{ secrets.ORG_ID}} #Required
+          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
+          working-directory: ./

@@ -119,8 +119,15 @@ jobs:
         run: echo "BRANCH=HEAD" >> website/.env
       - name: Building Gatsby
         run: yarn build:gatsby
-      - name: Building Storybook
-        run: yarn build-storybook
+
+      - uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+          vercel-args: "--prod" #Optional
+          vercel-org-id: ${{ secrets.ORG_ID}} #Required
+          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
+          working-directory: ./
 
       # TODO: Endre denne til vercel
       - name: Deploy to Design.nav.no 🚀
