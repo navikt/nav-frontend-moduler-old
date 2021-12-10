@@ -5,11 +5,8 @@ require("dotenv").config({
 module.exports = {
   plugins: [
     `gatsby-plugin-client-side-redirect`,
-    "gatsby-plugin-robots-txt",
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-less`,
-    "gatsby-plugin-cname",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
