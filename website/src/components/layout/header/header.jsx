@@ -10,6 +10,7 @@ import MobileNav from "./mobile-nav/MobileNav";
 import MobileNavToggle from "./mobile-nav-toggle/MobileNavToggle";
 import { Back } from "@navikt/ds-icons";
 import "./header.less";
+import DeprecationWarning from "./DeprecationWarning";
 
 const Header = ({ location, title }) => {
   const [mobile, setMobile] = useState(false);
@@ -58,6 +59,7 @@ const Header = ({ location, title }) => {
   checkViewport();
   return (
     <React.Fragment>
+      <DeprecationWarning />
       <header className="header">
         <div className="header__content">
           <Link to="/" className="header__home">

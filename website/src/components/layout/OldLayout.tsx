@@ -10,6 +10,7 @@ import MdxWrapper from "./Mdxprovider";
 import { globalHistory } from "@reach/router";
 import "./layout.less";
 import startCase from "lodash.startcase";
+import DeprecationWarning from "./header/DeprecationWarning";
 
 const Layout = (props) => {
   useEffect(() => {
@@ -25,20 +26,6 @@ const Layout = (props) => {
 
   return (
     <>
-      <Helmet
-        title={props.pageContext?.frontmatter?.title}
-        titleTemplate={`%s - ${
-          source === "" ? "" : source + " -"
-        }  NAV Verktøykassen`}
-      >
-        <html lang="no" />
-        {props.pageContext?.frontmatter?.ingress && (
-          <meta
-            name="description"
-            content={props.pageContext?.frontmatter?.ingress}
-          />
-        )}
-      </Helmet>
       <a href="#hovedinnhold" tab-index={-1} id="skip-link">
         Hopp til innhold
       </a>
