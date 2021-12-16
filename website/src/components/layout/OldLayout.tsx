@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { default as cl } from "classnames";
-import { Helmet } from "react-helmet";
 
 import Header from "./header/header";
 import Breadcrumb from "./Breadcrumb";
@@ -10,7 +9,6 @@ import MdxWrapper from "./Mdxprovider";
 import { globalHistory } from "@reach/router";
 import "./layout.less";
 import startCase from "lodash.startcase";
-import DeprecationWarning from "./header/DeprecationWarning";
 
 const Layout = (props) => {
   useEffect(() => {
