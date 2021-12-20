@@ -59,7 +59,7 @@ const Header = ({ location, title }) => {
   checkViewport();
   return (
     <React.Fragment>
-      <DeprecationWarning />
+      {title !== "Designsystemet" && <DeprecationWarning />}
       <header className="header">
         <div className="header__content">
           <Link to="/" className="header__home">
