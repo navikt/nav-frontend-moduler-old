@@ -59,10 +59,10 @@ const Header = ({ location, title }) => {
   checkViewport();
   return (
     <React.Fragment>
-      {title !== "Designsystemet" && <DeprecationWarning />}
+      {title === "Designsystemet" && <DeprecationWarning />}
       <header className="header">
         <div className="header__content">
-          <Link to="/" className="header__home">
+          <Link to="https://design.nav.no/" className="header__home">
             <Back />
             <Normaltekst className="header__home_title" tag={"span"}>
               Hjem
