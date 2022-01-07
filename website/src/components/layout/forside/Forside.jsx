@@ -36,14 +36,6 @@ const Forside = ({ ...props }) => {
           <ol className="card__grid">
             <li>
               <Card
-                content="Brand og visuell profil basert på vår visjon og våre verdier."
-                title="Brand"
-                link="https://identitet.nav.no/"
-                icon={<Star focusable="false" />}
-              />
-            </li>
-            <li>
-              <Card
                 content="Gjør det enklere å lage produkter i NAV."
                 title="Designsystem"
                 link="/designsystem"
@@ -57,31 +49,10 @@ const Forside = ({ ...props }) => {
             </li>
             <li>
               <Card
-                content="Tjenester til brukerne må fungere for alle."
-                title="Universell utforming"
-                link="https://navikt.github.io/uu/"
-                icon={<HandsHeart focusable="false" />}
-              />
-            </li>
-            <li>
-              <Card
                 content="Metoder og prinsipper for tverrfaglig produktutvikling."
                 title="God praksis"
                 link="/god-praksis"
                 icon={<Like focusable="false" />}
-              />
-            </li>
-            <li>
-              <Card
-                content={
-                  <>
-                    <p>Hvordan vi utvikler sikker software i NAV.</p>
-                    <p>(Krever GitHub bruker i navikt org)</p>
-                  </>
-                }
-                title="Security Champions Playbook"
-                link="https://improved-train-2f244007.pages.github.io/"
-                icon={<Locked focusable="false" />}
               />
             </li>
           </ol>
