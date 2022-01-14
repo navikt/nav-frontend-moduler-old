@@ -9,6 +9,7 @@ import MdxWrapper from "./Mdxprovider";
 import { globalHistory } from "@reach/router";
 import "./layout.less";
 import startCase from "lodash.startcase";
+import { Helmet } from "react-helmet";
 
 const Layout = (props) => {
   useEffect(() => {
@@ -24,6 +25,9 @@ const Layout = (props) => {
 
   return (
     <>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <a href="#hovedinnhold" tab-index={-1} id="skip-link">
         Hopp til innhold
       </a>
