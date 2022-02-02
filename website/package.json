@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.1",
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.18",
+    "@mdx-js/mdx": "^2.0.0",
     "@mdx-js/react": "^1.6.18",
     "@types/classnames": "^2.2.10",
     "babel-plugin-prismjs": "^2.0.1",
