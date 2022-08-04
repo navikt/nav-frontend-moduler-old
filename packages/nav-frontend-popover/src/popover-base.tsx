@@ -60,6 +60,10 @@ export interface PopoverBaseProps extends React.HTMLAttributes<HTMLDivElement> {
    * React-referanse til intern `<div>`
    */
   innerRef?: React.RefObject<HTMLDivElement>;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 export interface PopoverPosisjonShape {

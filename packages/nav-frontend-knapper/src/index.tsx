@@ -54,6 +54,10 @@ export interface KnappBaseProps extends CustomHTMLButtonAttributes {
    * Innstillinger for å endre på knappens form.
    */
   kompakt?: boolean;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 /**

@@ -46,6 +46,10 @@ export interface EkspanderbartpanelBaseProps
    * Dersom innholdet skal rendres men ikke vises, når panelet er lukket
    */
   renderContentWhenClosed?: boolean;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 class EkspanderbartpanelBase extends React.PureComponent<

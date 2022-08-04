@@ -46,6 +46,10 @@ export interface TabProps {
    * Brukes av PureTabs for fokus-management
    */
   linkRef?: Function;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 class Tab extends React.Component<TabProps> {

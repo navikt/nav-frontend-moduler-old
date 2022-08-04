@@ -26,6 +26,10 @@ export interface TabsPureProps {
    * Valgfri callback som kjøres når state endrer seg etter click
    */
   onChange?: (event: React.SyntheticEvent<EventTarget>, index: number) => void;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 class TabsPure extends React.PureComponent<TabsPureProps> {
