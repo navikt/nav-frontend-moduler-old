@@ -1,6 +1,6 @@
 {
   "name": "nav-frontend-knapper-style",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "src/index.less",
   "license": "MIT",
   "files": [
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "nav-frontend-core": "^6.0.1",
-    "nav-frontend-typografi-style": "^2.0.1"
+    "nav-frontend-typografi-style": "^2.0.2"
   },
   "peerDependencies": {
     "nav-frontend-core": "^6.0.0",
