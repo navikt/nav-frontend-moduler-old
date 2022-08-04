@@ -3,7 +3,7 @@ import { Feilmelding } from "nav-frontend-typografi";
 import "nav-frontend-skjema-style";
 
 export interface SkjemaelementFeilmeldingProps
-  extends React.Component<React.HTMLAttributes<HTMLDivElement>> {
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Komponentens barn
    */
