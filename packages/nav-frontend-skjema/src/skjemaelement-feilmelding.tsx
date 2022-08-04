@@ -2,9 +2,15 @@ import * as React from "react";
 import { Feilmelding } from "nav-frontend-typografi";
 import "nav-frontend-skjema-style";
 
-class SkjemaelementFeilmelding extends React.Component<
-  React.HTMLAttributes<HTMLDivElement>
-> {
+export interface SkjemaelementFeilmeldingProps
+  extends React.Component<React.HTMLAttributes<HTMLDivElement>> {
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
+}
+
+class SkjemaelementFeilmelding extends React.Component<SkjemaelementFeilmeldingProps> {
   static defaultProps: Partial<React.HTMLAttributes<HTMLDivElement>> = {
     "aria-live": "polite",
   };

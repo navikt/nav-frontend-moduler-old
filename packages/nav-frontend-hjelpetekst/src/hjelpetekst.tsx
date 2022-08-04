@@ -28,6 +28,10 @@ export interface HjelpetekstProps
    * Popover props som videreformidles til intern instans av Popover.
    */
   popoverProps?: PopoverProps;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 export interface State {

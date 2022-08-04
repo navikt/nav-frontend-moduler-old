@@ -19,6 +19,10 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
    * -
    */
   className?: string;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 const getRelFromTarget = (target) => {

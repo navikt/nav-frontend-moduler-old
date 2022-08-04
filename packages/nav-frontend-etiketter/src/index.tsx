@@ -22,6 +22,10 @@ export interface EtikettProps extends React.HTMLAttributes<HTMLDivElement> {
    * Tettere 24px høy, 14px font-size versjon
    */
   mini?: boolean;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 /**
  * Etiketter finnes i fire predefinerte farger,

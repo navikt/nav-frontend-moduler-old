@@ -20,6 +20,10 @@ export interface ToggleKnappProps {
     event: React.MouseEvent<HTMLButtonElement>,
     pressed: boolean
   ) => void;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 export interface ToggleKnappState {

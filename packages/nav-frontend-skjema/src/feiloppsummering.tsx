@@ -26,6 +26,10 @@ export interface FeiloppsummeringProps
    * Alternativ renderer for feil, f.eks. dersom en ikke kan lenke til inputelement vha #id
    */
   customFeilRender?: (feil: FeiloppsummeringFeil) => React.ReactNode;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 export interface FeiloppsummeringFeil {

@@ -44,6 +44,10 @@ export interface StegindikatorProps {
    * Komponenten vil auto-justere seg selv avhengig av tilgjengelig konteiner-bredde, lytter på window `resize` event
    */
   autoResponsiv: boolean;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 export interface StegindikatorState {

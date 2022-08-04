@@ -13,6 +13,10 @@ export interface PanelProps extends React.HTMLAttributes<HTMLDivElement> {
    * Gir komponenten en grå border
    */
   border?: boolean;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 class Panel extends React.Component<PanelProps> {

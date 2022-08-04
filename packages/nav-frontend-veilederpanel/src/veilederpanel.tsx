@@ -43,6 +43,10 @@ export interface VeilederpanelProps {
    * Props som blir videreformidlet til intern instans av Veileder.
    */
   veilederProps?: VeilederProps;
+  /**
+   * Komponentens barn
+   */
+  children?: React.ReactNode;
 }
 
 class Veilederpanel extends React.Component<VeilederpanelProps> {
