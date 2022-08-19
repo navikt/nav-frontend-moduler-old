@@ -6,7 +6,7 @@ const DeprecationWarning = () => {
   return (
     <AlertStripe type="advarsel" className="hellobanner">
       Dette er en utdatert side,{" "}
-      <Lenke href="https://design.nav.no/">
+      <Lenke href="https://aksel.nav.no/">
         gå her for å finne oppdatert dokumentasjon.
       </Lenke>
     </AlertStripe>

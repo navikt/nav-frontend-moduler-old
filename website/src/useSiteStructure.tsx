@@ -11,7 +11,6 @@ const usePages = () => {
                 title
                 rank
                 ingress
-                heading
               }
             }
             path

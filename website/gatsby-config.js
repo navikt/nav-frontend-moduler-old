@@ -70,19 +70,6 @@ module.exports = {
       },
     },
     {
-      resolve: `from-git-fix`,
-      options: {
-        repository: "verktoykasse-innhold",
-        tree: true,
-        releases: false,
-        user: "navikt",
-        branch: process.env.BRANCH,
-        secrets: {
-          token: process.env.ACCESS_TOKEN,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `NAV Designsystem`,
@@ -95,14 +82,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
-    },
-    {
-      resolve: `gatsby-plugin-hotjar-tracking`,
-      options: {
-        includeInDevelopment: false,
-        id: 148751,
-        sv: 6,
-      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

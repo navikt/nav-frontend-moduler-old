@@ -1,14 +1,13 @@
-import React from "react";
+import { Facilitet } from "@navikt/ds-icons";
+import Lenke from "nav-frontend-lenker";
 import { Ingress, Sidetittel } from "nav-frontend-typografi";
-import Card from "../../card/Card";
-import { Star, Facilitet, HandsHeart, Like, Locked } from "@navikt/ds-icons";
+import React from "react";
 import { NAVLogoDark } from "../../assets/images/svg";
-import "./styles.less";
+import Card from "../../card/Card";
 import DeprecationWarning from "../header/DeprecationWarning";
-/* import Lenke from "nav-frontend-lenker"; */
+import "./styles.less";
 
 const Forside = ({ ...props }) => {
-  console.log(props);
   return (
     <>
       <div className="forside__deprecation">
@@ -18,17 +17,13 @@ const Forside = ({ ...props }) => {
         <div className="forside__intro">
           <div className="forside__logo-wrapper">
             <NAVLogoDark className="forside__logo" />
-            {/* <span className="forside__logo-links">
-          <Lenke href="#">Noe info</Lenke>
-          <Lenke href="#">Noe annet</Lenke>
-        </span>
-       */}
           </div>
-          <Sidetittel>Verktøykassen</Sidetittel>
+          <Sidetittel>
+            Gammel dokumentasjonside for designsystemet til NAV
+          </Sidetittel>
           <Ingress>
-            En samling ressurser fra ulike fagdisipliner, som sammen hjelper oss
-            med å skape bedre, universelt tilgjengelige og sammenhengende
-            produkter i NAV.
+            Gå til <Lenke href="https://aksel.nav.no/">aksel.nav.no</Lenke> for
+            oppdatert dokumentasjon.
           </Ingress>
         </div>
 
@@ -36,7 +31,7 @@ const Forside = ({ ...props }) => {
           <ol className="card__grid">
             <li>
               <Card
-                content="Gjør det enklere å lage produkter i NAV."
+                content="Dokumentasjon for nav-frontend pakker"
                 title="Designsystem"
                 link="/designsystem"
                 icon={
@@ -45,14 +40,6 @@ const Forside = ({ ...props }) => {
                     className="icon-facilitet--align"
                   />
                 }
-              />
-            </li>
-            <li>
-              <Card
-                content="Metoder og prinsipper for tverrfaglig produktutvikling."
-                title="God praksis"
-                link="/god-praksis"
-                icon={<Like focusable="false" />}
               />
             </li>
           </ol>

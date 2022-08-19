@@ -50,10 +50,7 @@ const Header = ({ location, title }) => {
     title === "Designsystemet" ? "designsystem" : title.toLowerCase();
 
   const dsMenu = [
-    { link: "/designsystem/resources", title: "Ressurser" },
     { link: "/designsystem/components/alertstripe", title: "Komponenter" },
-    { link: "/designsystem/patterns", title: "Mønster" },
-    { link: "/designsystem/accessibility", title: "Tilgjengelighet" },
   ];
 
   checkViewport();

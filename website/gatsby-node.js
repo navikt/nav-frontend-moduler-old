@@ -1,4 +1,3 @@
-const path = require(`path`);
 const redirects = require("./redirects");
 let packages = {};
 const dsUrl = "/designsystem";
@@ -134,7 +133,7 @@ exports.onCreatePage = ({ page, actions }) => {
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage, createRedirect } = actions;
+  const { createRedirect } = actions;
 
   redirects.forEach((path) => {
     createRedirect({
@@ -143,57 +142,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       isPermanent: true,
     });
   });
-
-  const result = await graphql(`
-    {
-      allGithubFile(filter: { relativeDirectory: { nin: "." } }) {
-        edges {
-          node {
-            base
-            path
-            relativeDirectory
-            childMdx {
-              tableOfContents(maxDepth: 3)
-              excerpt
-            }
-            childMarkdownRemark {
-              htmlAst
-              frontmatter {
-                title
-                rank
-                heading
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  result.data.allGithubFile.edges
-    .filter(({ node }) => node.path.endsWith(".md"))
-    .forEach(({ node }) => {
-      const parsedPath = `/${node.path.replace(".md", "").replace(" ", "-")}`
-        .toLowerCase()
-        .replace("readme", "");
-      console.log(parsedPath);
-
-      createPage({
-        path: parsedPath,
-        component: path.resolve(
-          `./src/components/layout/templates/verktoykasseArticle.jsx`
-        ),
-        context: {
-          parentDir: node.relativeDirectory,
-          htmlAst: node.childMarkdownRemark.htmlAst,
-          frontmatter: {
-            ...node.childMarkdownRemark.frontmatter,
-            ingress: node.childMdx?.excerpt || null,
-          },
-          toc: node.childMdx?.tableOfContents || null,
-        },
-      });
-    });
 };
 
 exports.onPostBuild = ({ store, reporter }) => {
